@@ -4,10 +4,15 @@ $(".buttons").show('slow');
 
 //when 'Submit Your Guess' button is pressed
 
-$("#input").submit(function(){
+$("input").submit(function(){
 	alert("You hit the ENTER button!");
 });
 
 $(".buttons").on('click', function() {
 	alert("You clicked a button.");
 });
+
+$("input").on('keyup', function() {
+	var number = $(this).val();
+});
+
