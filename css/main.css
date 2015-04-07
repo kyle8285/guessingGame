@@ -1,9 +1,45 @@
+body {
+	background-color: red;
+}
+
+a {
+	text-decoration: none;
+}
+
 h1 {
 	font-size: 1.75em;
+	text-align: center;
 }
 
 input {
+	margin: 0 auto;
 	width: 200px;
 	height: 50px;
 	font-size: 1em;
+	background-color: yellow;
+	border-radius: 5px;
+}
+
+form {
+	background-color: blue;
+	padding: 4em 4em 2em;
+	max-width: 400px;
+	margin: 0 auto;
+	box-shadow: 0 0 lem #222;
+	border-radius: 5px;
+}
+
+button {
+	font-size: 1.25em;
+	color: orange;
+	background-color: #888;
+	display: inline;
+	padding: 8px;
+	margin: 10px;
+	border-radius: 5px;
+	border: 6px solid #949599
+}
+
+#submitGuess {
+	color: red;
 }
