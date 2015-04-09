@@ -14,6 +14,7 @@ h1 {
 }
 
 input {
+	display: block;
 	margin: 0 auto;
 	width: 200px;
 	height: 50px;
@@ -22,20 +23,21 @@ input {
 	border-radius: 5px;
 }
 
-form {
+/*form {
 	background-color: blue;
 	padding: 4em 4em 2em;
 	max-width: 400px;
 	margin: 0 auto;
 	box-shadow: 0 0 lem #222;
 	border-radius: 5px;
-}
+}*/
 
 button {
+	width: 225px;
 	font-size: 1.25em;
 	color: orange;
 	background-color: #888;
-	display: inline;
+	display: inline-block;
 	padding: 8px;
 	margin: 10px;
 	border-radius: 5px;
