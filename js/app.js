@@ -1,4 +1,4 @@
-/********** GUESSING GAME **********/
+/********* GUESSING GAME *********/
 
 //when a game begins (page loads or 'Play Again' clicked), there should be a random 
 //number generated between 1 and 100
