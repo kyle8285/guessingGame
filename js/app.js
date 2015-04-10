@@ -43,7 +43,7 @@ function hotOrCold() {
 	
 	//if guessed correctly
 	if (temp === 0) { 
-		$("p").text("CONGRATS! You guessed the lucky number!")
+		$("p").text("CONGRATS! You guessed the lucky number!");
 	}
 	//if guessed too high
 	else if (temp >= 35) {
@@ -64,6 +64,10 @@ function hotOrCold() {
 	}
 	else if (9 >= Math.abs(temp) && Math.abs(temp) > 0) {
 		$("p").text("You're hot! Just a bit higher.");
+	}
+
+	if (numberOfGuesses === 0) {
+		$("p").text("GAME OVER. THE NUMBER WAS " + numberToGuess +"! PLEASE PLAY AGAIN.");
 	}
 }
 
@@ -86,9 +90,7 @@ $(document).ready(function(){
 //use this when they hit 'enter' to submit their guess
 $('input').on('keypress', function() {
  	if (event.which === 13) {
-		if (numberOfGuesses === 0) {
-			$("p").text("GAME OVER. THE NUMBER WAS " + numberToGuess +"! PLEASE PLAY AGAIN.");
-		} else {
+		if (numberOfGuesses > 0) {
 			currentGuess = +$('input').val();
 			//checkGuessValidity(currentGuess);
 			trackGuesses();
@@ -129,6 +131,13 @@ $('#giveHint').on('click', function() {
 });
 
 
+//shows that you are hovering over the button
+$("button").hover(function() {
+	$(this).css("background-color", "gray");
+	},
+	function() {
+	$(this).css("background-color", "rgba(119, 101, 101, 0.37)");
+	});
 
 }) //end of document.ready()
 
