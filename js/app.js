@@ -21,17 +21,18 @@ var numberOfGuesses = 5;
 var guesses = [];
 
 
-//hide the answer
-$('span').hide();
-
- var currentGuess;
+var currentGuess;
 
 
 //check to make sure the user entered a valid number
 function checkGuessValidity(){
 	// validation code
-	if(currentGuess !== typeof "number"){
-		alert('you must input a number');
+	if (currentGuess < 1 || currentGuess > 100) {
+		alert('Please enter a number between 1 and 100');
+		return false;
+	}
+	else {
+		return true;
 	}
 };
 
@@ -92,10 +93,11 @@ $('input').on('keypress', function() {
  	if (event.which === 13) {
 		if (numberOfGuesses > 0) {
 			currentGuess = +$('input').val();
-			//checkGuessValidity(currentGuess);
+			if (checkGuessValidity()) {
 			trackGuesses();
-			$('input').val('');
 			hotOrCold();
+			}
+			$('input').val('');
 		}
  	}
 	
@@ -108,10 +110,11 @@ $('#submitGuess').on('click', function(){
 		$("p").text("GAME OVER. THE NUMBER WAS " + numberToGuess +"! PLEASE PLAY AGAIN.");
 	} else {
 		currentGuess = +$('input').val();
-		//checkGuessValidity(currentGuess);
+		if (checkGuessValidity()) {
 		trackGuesses();
-		$('input').val('');
 		hotOrCold();
+		}
+		$('input').val('');
 	}
 });
 
@@ -123,11 +126,12 @@ $('#playAgain').on('click', function() {
 });
 
 
+$("#showHint").text(numberToGuess);
+
 //use this when they click the hint button
 $('#giveHint').on('click', function() {
-	//remove the button and show the hidden answer
-	$(this).hide();
-	$('span').show();
+	//show the hidden answer
+	$("h1").toggle();
 });
 
 
