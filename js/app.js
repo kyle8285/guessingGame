@@ -15,7 +15,6 @@ console.log(numberToGuess);
 
 //set the number of user guesses
 var numberOfGuesses = 5;
-console.log("Guesses remaining: ", numberOfGuesses);
 
 
 //track the user guesses
@@ -24,8 +23,6 @@ var guesses = [];
 
 //hide the answer
 $('span').hide();
-
-$(document).ready(function(){
 
  var currentGuess;
 
@@ -43,7 +40,6 @@ function checkGuessValidity(){
 //to be called AFTER checking if guess was correct
 function hotOrCold() {
 	var temp = currentGuess - numberToGuess;
-	//var $insert = $("p").text;
 	
 	//if guessed correctly
 	if (temp === 0) { 
@@ -81,27 +77,24 @@ function trackGuesses() {
 	else {
 		guesses.push(currentGuess);
 	}
+	numberOfGuesses -= 1;
 };
 
 
+$(document).ready(function(){
+
 //use this when they hit 'enter' to submit their guess
- $('input').on('keypress', function() {
+$('input').on('keypress', function() {
  	if (event.which === 13) {
-		// if (numberOfGuesses === 0) {
-		// 	console.log("game over");
-		// 	$("p").text("GAME OVER. PLEASE PLAY AGAIN.");
-		// }
-		currentGuess = $('input').val();
-		currentGuess = +currentGuess
-		console.log(typeof currentGuess);
-		trackGuesses();
-		console.log("Guesses: ", guesses);
-		//checkGuessValidity(currentGuess);
-		$('input').val('');
-		hotOrCold();
-		numberOfGuesses -= 1;
-		console.log("Guesses remaining: ", numberOfGuesses);
-		//$("div").after("Numbers you've guessed: ", currentGuess);
+		if (numberOfGuesses === 0) {
+			$("p").text("GAME OVER. THE NUMBER WAS " + numberToGuess +"! PLEASE PLAY AGAIN.");
+		} else {
+			currentGuess = +$('input').val();
+			//checkGuessValidity(currentGuess);
+			trackGuesses();
+			$('input').val('');
+			hotOrCold();
+		}
  	}
 	
 });
@@ -109,13 +102,15 @@ function trackGuesses() {
 
 //use this when they click the button to submit their guess
 $('#submitGuess').on('click', function(){
-	currentGuess = $('input').val();
-	//checkGuessValidity(currentGuess);
-	$('input').val('');
-	hotOrCold();
-	numberOfGuesses -= 1;
-	console.log("Guesses remaining: ", numberOfGuesses);
-	//$("div").after("Numbers you've guessed: ", currentGuess);
+	if (numberOfGuesses === 0) {
+		$("p").text("GAME OVER. THE NUMBER WAS " + numberToGuess +"! PLEASE PLAY AGAIN.");
+	} else {
+		currentGuess = +$('input').val();
+		//checkGuessValidity(currentGuess);
+		trackGuesses();
+		$('input').val('');
+		hotOrCold();
+	}
 });
 
 
@@ -129,13 +124,13 @@ $('#playAgain').on('click', function() {
 //use this when they click the hint button
 $('#giveHint').on('click', function() {
 	//remove the button and show the hidden answer
+	$(this).hide();
 	$('span').show();
-	$(this).remove();
 });
 
 
 
-})
+}) //end of document.ready()
 
 
 

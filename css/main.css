@@ -1,11 +1,14 @@
-/*
+
 body {
-	background-image: url(http://watermarked.cutcaster.com/cutcaster-photo-100697418-Question-Mark-Background-BW.jpg);
+	text-align: center;
+  background: #466368;
+  background: radial-gradient(rgba(132, 59, 33, 0.29), #293f50);
 }
-*/
+
 
 a {
 	text-decoration: none;
+	color: black;
 }
 
 h1 {
@@ -32,16 +35,21 @@ input {
 	border-radius: 5px;
 }*/
 
+.buttons button{
+	margin: 15px auto;
+	display: block;
+}
+
 button {
 	width: 225px;
 	font-size: 1.25em;
-	color: orange;
-	background-color: #888;
-	display: inline-block;
+	color: rgb(255, 136, 0);
+	background-color: rgba(119, 101, 101, 0.37);
+	display: block;
 	padding: 8px;
 	margin: 10px;
 	border-radius: 5px;
-	border: 6px solid #949599
+	border: 6px solid #C8C8C8;
 }
 
 #submitGuess {
