@@ -3,6 +3,8 @@ body {
 	text-align: center;
   background: #466368;
   background: radial-gradient(rgba(132, 59, 33, 0.29), #293f50);
+  max-width: 350px;
+  margin: 0 auto;
 }
 
 
