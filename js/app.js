@@ -45,6 +45,9 @@ function hotOrCold() {
 	//if guessed correctly
 	if (temp === 0) { 
 		$("p").text("CONGRATS! You guessed the lucky number!");
+		$('#submitGuess').prop('disabled', true);
+		$('#input').prop('disabled', true);
+		$('body').css("background", "white");	
 	}
 	//if guessed too high
 	else if (temp >= 35) {
@@ -66,6 +69,7 @@ function hotOrCold() {
 	else if (9 >= Math.abs(temp) && Math.abs(temp) > 0) {
 		$("p").text("You're hot! Just a bit higher.");
 	}
+	$('span').after('\n', currentGuess);
 
 	if (numberOfGuesses === 0) {
 		$("p").text("GAME OVER. THE NUMBER WAS " + numberToGuess +"! PLEASE PLAY AGAIN.");
@@ -81,6 +85,7 @@ function trackGuesses() {
 	}
 	else {
 		guesses.push(currentGuess);
+
 	}
 	numberOfGuesses -= 1;
 };
@@ -99,6 +104,8 @@ $('input').on('keypress', function() {
 			}
 			$('input').val('');
 		}
+
+		//$('#submitGuess').click();
  	}
 	
 });
@@ -133,15 +140,7 @@ $('#giveHint').on('click', function() {
 	//show the hidden answer
 	$("h1").toggle();
 });
-
-
-//shows that you are hovering over the button
-$("button").hover(function() {
-	$(this).css("background-color", "gray");
-	},
-	function() {
-	$(this).css("background-color", "rgba(119, 101, 101, 0.37)");
-	});
+	
 
 }) //end of document.ready()
 

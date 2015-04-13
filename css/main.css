@@ -1,9 +1,8 @@
 
 body {
 	text-align: center;
-  background: #466368;
-  background: radial-gradient(rgba(132, 59, 33, 0.29), #293f50);
-  max-width: 350px;
+  /*background: #466368;*/
+  background: radial-gradient(rgba(210, 187, 179, 0.29), #293f50);
   margin: 0 auto;
 }
 
@@ -13,9 +12,13 @@ a {
 	color: black;
 }
 
-h1 {
-	font-size: 1.75em;
+header h1 {
+	font-size: 2.5em;
 	text-align: center;
+}
+
+header h1:hover {
+	color: rgba(60, 60, 60, 0.89);
 }
 
 input {
@@ -27,15 +30,6 @@ input {
 	background-color: white;
 	border-radius: 5px;
 }
-
-/*form {
-	background-color: white;
-	padding: 4em 4em 2em;
-	max-width: 400px;
-	margin: 0 auto;
-	box-shadow: 0 0 lem #222;
-	border-radius: 5px;
-}*/
 
 .buttons button{
 	margin: 15px auto;
