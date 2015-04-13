@@ -12,6 +12,7 @@
       </a>
     </header>
     <!-- <form> -->
+    <div id="wrapper">
       <input type="number" id="playerGuess" name="playerGuess" placeholder="Enter a Number 1 - 100" min="1" max='100'>
       <p></p>
       <div class="buttons">
@@ -20,8 +21,9 @@
         <button id='giveHint'>Give Me a Hint</button>
         <h1 id="showHint"></h1>
       </div>
-      <span>Your guesses: </span>
+      <span id="yourGuesses">Your guesses: </span>
     <!-- </form> -->
+    </div>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/app.js" type="text/javascript" charset="utf-8"></script>
   </body>

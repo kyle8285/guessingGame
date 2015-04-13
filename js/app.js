@@ -46,7 +46,7 @@ function hotOrCold() {
 	if (temp === 0) { 
 		$("p").text("CONGRATS! You guessed the lucky number!");
 		$('#submitGuess').prop('disabled', true);
-		$('#input').prop('disabled', true);
+		$('input').prop('disabled', true);
 		$('body').css("background", "white");	
 	}
 	//if guessed too high
@@ -69,9 +69,9 @@ function hotOrCold() {
 	else if (9 >= Math.abs(temp) && Math.abs(temp) > 0) {
 		$("p").text("You're hot! Just a bit higher.");
 	}
-	$('span').after('\n', currentGuess);
+	$('#yourGuesses').after('\n', currentGuess);
 
-	if (numberOfGuesses === 0) {
+	if (numberOfGuesses === 0 && temp !== 0) {
 		$("p").text("GAME OVER. THE NUMBER WAS " + numberToGuess +"! PLEASE PLAY AGAIN.");
 	}
 }
@@ -80,32 +80,33 @@ function hotOrCold() {
 function trackGuesses() {
 	if (guesses.indexOf(currentGuess) !== -1) {
 		alert("You guessed that number already!");
-		//you don't lose a turn though!
-		numberOfGuesses += 1
+		//you don't lose a turn though
 	}
 	else {
 		guesses.push(currentGuess);
-
+		numberOfGuesses--;
 	}
-	numberOfGuesses -= 1;
+	
 };
 
 
 $(document).ready(function(){
 
+$('input').focus();
+
 //use this when they hit 'enter' to submit their guess
 $('input').on('keypress', function() {
  	if (event.which === 13) {
-		if (numberOfGuesses > 0) {
-			currentGuess = +$('input').val();
-			if (checkGuessValidity()) {
-			trackGuesses();
-			hotOrCold();
-			}
-			$('input').val('');
-		}
+		// if (numberOfGuesses > 0) {
+		// 	currentGuess = +$('input').val();
+		// 	if (checkGuessValidity()) {
+		// 	trackGuesses();
+		// 	hotOrCold();
+		// 	}
+		// 	$('input').val('');
+		// }
 
-		//$('#submitGuess').click();
+		$('#submitGuess').click();
  	}
 	
 });
@@ -113,15 +114,17 @@ $('input').on('keypress', function() {
 
 //use this when they click the button to submit their guess
 $('#submitGuess').on('click', function(){
-	if (numberOfGuesses === 0) {
-		$("p").text("GAME OVER. THE NUMBER WAS " + numberToGuess +"! PLEASE PLAY AGAIN.");
-	} else {
+
+	if (numberOfGuesses > 0) {
 		currentGuess = +$('input').val();
 		if (checkGuessValidity()) {
-		trackGuesses();
-		hotOrCold();
+			trackGuesses();
+			hotOrCold();
 		}
-		$('input').val('');
+
+	$('input').val('');
+	$('input').focus();
+
 	}
 });
 
