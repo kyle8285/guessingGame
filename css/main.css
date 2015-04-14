@@ -2,8 +2,10 @@
 body {
 	text-align: center;
   /*background: #466368;*/
-  background: linear-gradient(rgba(210, 187, 179, 0.29), rgba(53, 69, 81, 0.55));
+  background: radial-gradient(rgba(210, 187, 179, 0.29), rgba(53, 69, 81, 0.55));
   margin: 0 auto;
+  width: 95%;
+  height: 95%;
 }
 
 

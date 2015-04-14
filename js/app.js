@@ -97,18 +97,8 @@ $('input').focus();
 //use this when they hit 'enter' to submit their guess
 $('input').on('keypress', function() {
  	if (event.which === 13) {
-		// if (numberOfGuesses > 0) {
-		// 	currentGuess = +$('input').val();
-		// 	if (checkGuessValidity()) {
-		// 	trackGuesses();
-		// 	hotOrCold();
-		// 	}
-		// 	$('input').val('');
-		// }
-
 		$('#submitGuess').click();
  	}
-	
 });
 
 
@@ -121,10 +111,8 @@ $('#submitGuess').on('click', function(){
 			trackGuesses();
 			hotOrCold();
 		}
-
 	$('input').val('');
 	$('input').focus();
-
 	}
 });
 
@@ -141,7 +129,7 @@ $("#showHint").text(numberToGuess);
 //use this when they click the hint button
 $('#giveHint').on('click', function() {
 	//show the hidden answer
-	$("h1").toggle();
+	$("#showHint").toggle();
 });
 	
 
